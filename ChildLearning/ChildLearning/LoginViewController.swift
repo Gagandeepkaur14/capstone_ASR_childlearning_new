@@ -6,14 +6,19 @@
 
 import UIKit
 import FBSDKLoginKit
+import FirebaseDatabase
+import Firebase
+import FirebaseFirestore
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var txtFPassword: UITextField!
     @IBOutlet weak var txtFEmail: UITextField!
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
     
@@ -23,6 +28,13 @@ class LoginViewController: UIViewController {
     
     @IBAction func facebookLoginClicked(_ sender: Any) {
         loginWithFb()
+    }
+    
+    func fetchAllUsers(){
+        /*
+         Get the all data from Firebase
+         */
+      
     }
 
     func loginWithFb(){
