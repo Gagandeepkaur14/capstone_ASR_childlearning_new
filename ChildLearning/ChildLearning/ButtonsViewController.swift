@@ -11,6 +11,7 @@ class ButtonsViewController: UIViewController {
 
     @IBOutlet weak var collectionVWords: UICollectionView!
     var isAlphabets = Bool()
+    var isNumbers = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
