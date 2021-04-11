@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ButtonsViewController: UIViewController {
 
     @IBOutlet weak var collectionVWords: UICollectionView!
-    var isAlphabets = Bool()
+    var arr = [String]()
     var isNumbers = Bool()
+    var isAlphabets = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,31 @@ class ButtonsViewController: UIViewController {
                    }
                 self.arr = list.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
                     self.collectionVWords.reloadData()
+               }
+        }
+       
+    }
+    
+    func fetchNumbers(){
+        let db = Firestore.firestore()
+        print(db.collection(Constant.FirebaseData.Numbers))
+        db.collection(Constant.FirebaseData.Numbers).getDocuments { (query, error) in
+            if let err = error {
+                   print("Error getting documents: \(err)")
+               } else {
+                var list = [String]()
+                   for document in query!.documents {
+                       print("\(document.documentID) => \(document.data())")
+                    if let doc = document.data() as? [String: Any]{
+                        if let value =  doc["name"] as? String{
+                            print("value ------ \(value)")
+                            list.append(value)
+                        }
+                       
+                    }
+                   }
+                self.arr = list.sorted {$0.localizedStandardCompare($1) == .orderedAscending}
+                self.collectionVWords.reloadData()
                }
         }
        
