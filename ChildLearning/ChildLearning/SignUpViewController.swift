@@ -13,9 +13,11 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var txtFName: UITextField!
     @IBOutlet weak var txtFEmail: UITextField!
     @IBOutlet weak var txtFPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isTranslucent = true
         // Do any additional setup after loading the view.
     }
     
