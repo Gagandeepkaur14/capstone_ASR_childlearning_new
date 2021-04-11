@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var txtFPassword: UITextField!
     @IBOutlet weak var txtFEmail: UITextField!
     var ref: DatabaseReference!
+    var users: [Users] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
