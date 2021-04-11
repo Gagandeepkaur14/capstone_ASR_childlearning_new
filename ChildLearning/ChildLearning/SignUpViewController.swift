@@ -18,6 +18,8 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.ref = Database.database().reference()
+        fetchAllUsers()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.isTranslucent = true
         // Do any additional setup after loading the view.
@@ -38,6 +40,20 @@ class SignUpViewController: UIViewController {
         })
     }
     
+    func signupObserverFirebase(email: String,name: String, password: String){ 
+        let data = ["name": name,
+                    "email": email,
+                    "password" : password] as [String : Any]
+        
+        if users.contains(where: {$0.email == email }){
+            Alert.addAlertController(strTittle: "", strMessage: "Email alreday registered", viewC: self)
+        }
+        else{
+            ref.child(Constant.FirebaseData.User).childByAutoId().setValue(data)
+            let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
