@@ -21,6 +21,11 @@ class LoginViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func facebookLoginClicked(_ sender: Any) {
+       // loginWithFb()
+    }
+
+    
 
     /*
     // MARK: - Navigation
