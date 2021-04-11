@@ -6,7 +6,7 @@ target 'ChildLearning' do
   use_frameworks!
 
   # Pods for ChildLearning
-
+pod 'IQKeyboardManagerSwift'
   target 'ChildLearningTests' do
     inherit! :search_paths
     # Pods for testing
