@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ref = Database.database().reference()
+        fetchAllUsers()
         // Do any additional setup after loading the view.
     }
     

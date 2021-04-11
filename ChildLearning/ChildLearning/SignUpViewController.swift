@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
         })
     }
     
-    func signupObserverFirebase(email: String,name: String, password: String){ 
+    func signupObserverFirebase(email: String,name: String, password: String){
         let data = ["name": name,
                     "email": email,
                     "password" : password] as [String : Any]
@@ -53,6 +53,25 @@ class SignUpViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    @IBAction func signUpcClicked(_ sender: Any) {
+        if txtFName.text?.count == 0{
+            Alert.addAlertController(strTittle: "", strMessage: "Please add the name ", viewC: self)
+        }
+        else if txtFEmail.text?.count == 0{
+            Alert.addAlertController(strTittle: "", strMessage: "Please add the email ", viewC: self)
+        }
+        else  if txtFPassword.text?.count == 0{
+            Alert.addAlertController(strTittle: "", strMessage: "Please add the password ", viewC: self)
+        }
+        else if !CommonFunctions.isValidEmail(testStr: txtFEmail.text ?? ""){
+            Alert.addAlertController(strTittle: "", strMessage: "Please add valid email", viewC: self)
+        }
+        else{
+            signupObserverFirebase(email: txtFEmail.text ?? "", name: txtFName.text ?? "", password: txtFPassword.text ?? "")
+        }
+        
     }
     
     @IBAction func backClicked(_ sender: Any) {
