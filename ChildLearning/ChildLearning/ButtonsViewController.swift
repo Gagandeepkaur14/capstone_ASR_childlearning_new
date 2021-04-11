@@ -19,6 +19,30 @@ class ButtonsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func fetchAlphabets(){
+        let db = Firestore.firestore()
+        db.collection(Constant.FirebaseData.Alphabets).getDocuments { (query, error) in
+            if let err = error {
+                   print("Error getting documents: \(err)")
+               } else {
+                var list = [String]()
+                   for document in query!.documents {
+                       print("\(document.documentID) => \(document.data())")
+                    if let doc = document.data() as? [String: Any]{
+                        if let value =  doc["name"] as? String{
+                            print("value ------ \(value)")
+                            list.append(value)
+                        }
+                       
+                    }
+                   }
+                self.arr = list.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
+                    self.collectionVWords.reloadData()
+               }
+        }
+       
+    }
+    
 
 }
 
