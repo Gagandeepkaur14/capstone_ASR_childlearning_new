@@ -76,16 +76,18 @@ class ButtonsViewController: UIViewController {
 extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return arr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCollectionViewCell", for: indexPath) as! ButtonCollectionViewCell
         cell.layer.cornerRadius = 5.0
+        cell.lblName.text = arr[indexPath.row].capitalized
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(identifier: "SpeakViewController") as! SpeakViewController
+        vc.strWord = arr[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

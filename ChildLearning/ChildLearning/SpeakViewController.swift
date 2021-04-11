@@ -7,6 +7,7 @@ import UIKit
 
 class SpeakViewController: UIViewController {
 
+    var strWord = String()
     override func viewDidLoad() {
         super.viewDidLoad()
 
