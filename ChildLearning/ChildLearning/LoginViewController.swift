@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
         /*
          Get the all data from Firebase
          */
+        
       
     }
 

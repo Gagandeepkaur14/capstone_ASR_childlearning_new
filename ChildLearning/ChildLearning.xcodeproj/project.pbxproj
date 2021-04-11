@@ -23,6 +23,7 @@
 		62A28FCD2622EA9B008163C3 /* SpeakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28FCC2622EA9B008163C3 /* SpeakViewController.swift */; };
 		62A28FD22622EC64008163C3 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28FD12622EC64008163C3 /* ButtonCollectionViewCell.swift */; };
 		62A28FF126235BAE008163C3 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28FF026235BAE008163C3 /* FirebaseModel.swift */; };
+		62A28FF626235C11008163C3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28FF526235C11008163C3 /* Constant.swift */; };
 		67D33580ED5C0FFA8A9EA69C /* Pods_ChildLearningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED84834172A473B6C3776E9E /* Pods_ChildLearningTests.framework */; };
 		EC7A27FAA6063ED09A04CC57 /* Pods_ChildLearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F5C57993E49CF03A47D25 /* Pods_ChildLearning.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		62A28FCC2622EA9B008163C3 /* SpeakViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakViewController.swift; sourceTree = "<group>"; };
 		62A28FD12622EC64008163C3 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		62A28FF026235BAE008163C3 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
+		62A28FF526235C11008163C3 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		6F676960CCC2475D219636CD /* Pods-ChildLearning-ChildLearningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChildLearning-ChildLearningUITests.release.xcconfig"; path = "Target Support Files/Pods-ChildLearning-ChildLearningUITests/Pods-ChildLearning-ChildLearningUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B9BFCFBE97959EEB2059C3E8 /* Pods_ChildLearning_ChildLearningUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChildLearning_ChildLearningUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB70A4EF78F2D1A60AC8AC4 /* Pods-ChildLearningTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChildLearningTests.release.xcconfig"; path = "Target Support Files/Pods-ChildLearningTests/Pods-ChildLearningTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				62A28FCC2622EA9B008163C3 /* SpeakViewController.swift */,
 				62A28FD12622EC64008163C3 /* ButtonCollectionViewCell.swift */,
 				62A28FF026235BAE008163C3 /* FirebaseModel.swift */,
+				62A28FF526235C11008163C3 /* Constant.swift */,
 			);
 			path = ChildLearning;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				62A28FBD2622EA45008163C3 /* ButtonsViewController.swift in Sources */,
 				62A28FB32622E846008163C3 /* SignUpViewController.swift in Sources */,
 				62A28FB82622E9B4008163C3 /* HomeViewController.swift in Sources */,
+				62A28FF626235C11008163C3 /* Constant.swift in Sources */,
 				62A28FD22622EC64008163C3 /* ButtonCollectionViewCell.swift in Sources */,
 				62A28FCD2622EA9B008163C3 /* SpeakViewController.swift in Sources */,
 			);
