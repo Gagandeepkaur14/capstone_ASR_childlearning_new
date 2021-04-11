@@ -18,6 +18,7 @@
 		62A28F7F2622DC10008163C3 /* ChildLearningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28F7E2622DC10008163C3 /* ChildLearningUITests.swift */; };
 		62A28FAE2622E81D008163C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28FAD2622E81D008163C3 /* LoginViewController.swift */; };
 		62A28FB32622E846008163C3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28FB22622E846008163C3 /* SignUpViewController.swift */; };
+		62A28FB82622E9B4008163C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28FB72622E9B4008163C3 /* HomeViewController.swift */; };
 		67D33580ED5C0FFA8A9EA69C /* Pods_ChildLearningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED84834172A473B6C3776E9E /* Pods_ChildLearningTests.framework */; };
 		EC7A27FAA6063ED09A04CC57 /* Pods_ChildLearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F5C57993E49CF03A47D25 /* Pods_ChildLearning.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		62A28F802622DC10008163C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62A28FAD2622E81D008163C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		62A28FB22622E846008163C3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		62A28FB72622E9B4008163C3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6F676960CCC2475D219636CD /* Pods-ChildLearning-ChildLearningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChildLearning-ChildLearningUITests.release.xcconfig"; path = "Target Support Files/Pods-ChildLearning-ChildLearningUITests/Pods-ChildLearning-ChildLearningUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B9BFCFBE97959EEB2059C3E8 /* Pods_ChildLearning_ChildLearningUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChildLearning_ChildLearningUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB70A4EF78F2D1A60AC8AC4 /* Pods-ChildLearningTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChildLearningTests.release.xcconfig"; path = "Target Support Files/Pods-ChildLearningTests/Pods-ChildLearningTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				62A28F6A2622DC10008163C3 /* Info.plist */,
 				62A28FAD2622E81D008163C3 /* LoginViewController.swift */,
 				62A28FB22622E846008163C3 /* SignUpViewController.swift */,
+				62A28FB72622E9B4008163C3 /* HomeViewController.swift */,
 			);
 			path = ChildLearning;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				62A28F5D2622DC0D008163C3 /* AppDelegate.swift in Sources */,
 				62A28F5F2622DC0D008163C3 /* SceneDelegate.swift in Sources */,
 				62A28FB32622E846008163C3 /* SignUpViewController.swift in Sources */,
+				62A28FB82622E9B4008163C3 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
