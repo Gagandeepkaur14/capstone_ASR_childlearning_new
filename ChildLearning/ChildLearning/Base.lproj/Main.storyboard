@@ -665,6 +665,44 @@
             </objects>
             <point key="canvasLocation" x="4749" y="95"/>
         </scene>
+        <!--Speak View Controller-->
+        <scene sceneID="Pg5-23-sZn">
+            <objects>
+                <viewController storyboardIdentifier="SpeakViewController" id="ebn-dE-WXI" customClass="SpeakViewController" customModule="ChildLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G1f-Yi-1Tw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zat-Zd-p2J">
+                                <rect key="frame" x="5" y="93" width="404" height="764"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="130"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7gR-r0-gff"/>
+                        <color key="backgroundColor" red="0.4549019608" green="0.79215686269999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zat-Zd-p2J" firstAttribute="top" secondItem="7gR-r0-gff" secondAttribute="top" constant="5" id="DmX-vi-A52"/>
+                            <constraint firstItem="7gR-r0-gff" firstAttribute="trailing" secondItem="zat-Zd-p2J" secondAttribute="trailing" constant="5" id="G80-R0-QHu"/>
+                            <constraint firstItem="7gR-r0-gff" firstAttribute="bottom" secondItem="zat-Zd-p2J" secondAttribute="bottom" constant="5" id="HIA-fg-uTE"/>
+                            <constraint firstItem="zat-Zd-p2J" firstAttribute="leading" secondItem="7gR-r0-gff" secondAttribute="leading" constant="5" id="s1v-X8-oR8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="61s-Fd-Dgh">
+                        <barButtonItem key="leftBarButtonItem" title="Words" style="done" id="jNc-ln-QwS">
+                            <color key="tintColor" red="1" green="0.79215686269999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="lblName" destination="zat-Zd-p2J" id="LRb-28-dxB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R6V-JV-JyE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5386" y="94"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back" width="30" height="30"/>
