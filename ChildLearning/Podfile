@@ -8,6 +8,9 @@ target 'ChildLearning' do
   # Pods for ChildLearning
 pod 'IQKeyboardManagerSwift'
 pod 'FacebookLogin'
+pod 'Firebase/Database'
+pod 'Firebase/Firestore'
+
   target 'ChildLearningTests' do
     inherit! :search_paths
     # Pods for testing
