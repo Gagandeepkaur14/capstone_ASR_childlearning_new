@@ -10,6 +10,7 @@ import UIKit
 class ButtonsViewController: UIViewController {
 
     @IBOutlet weak var collectionVWords: UICollectionView!
+    var isAlphabets = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
