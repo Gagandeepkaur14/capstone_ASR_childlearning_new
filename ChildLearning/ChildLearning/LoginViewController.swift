@@ -34,7 +34,15 @@ class LoginViewController: UIViewController {
         /*
          Get the all data from Firebase
          */
-        
+        ref.child(Constant.FirebaseData.User).observe(.value, with: { snapshot in
+            
+            for eachPlace in (snapshot.children){
+                let place = Users(snapshot: eachPlace as! DataSnapshot)
+                self.users.append(place)
+                print("users p------- \(self.users)")
+            }
+           
+        })
       
     }
 
