@@ -31,6 +31,44 @@ class LoginViewController: UIViewController {
         loginWithFb()
     }
     
+    @IBAction func loginClicked(_ sender: Any) {
+        if txtFEmail.text == ""{
+            Alert.addAlertController(strTittle: "", strMessage: "Please add the name ", viewC: self)
+        }
+        else  if txtFPassword.text?.count == 0{
+            Alert.addAlertController(strTittle: "", strMessage: "Please add the password ", viewC: self)
+        }
+        else if !CommonFunctions.isValidEmail(testStr: txtFEmail.text ?? ""){
+            Alert.addAlertController(strTittle: "", strMessage: "Please add valid email", viewC: self)
+        }
+        else{
+            fetchLogin(email: txtFEmail.text ?? "", password: txtFPassword.text  ?? "")
+        }
+    }
+    
+    func fetchLogin(email: String, password: String){
+
+        if let singleUser = users.enumerated().first(where: {$0.element.email == email}) {
+
+            let user = singleUser.element
+            if user.password != password{
+                Alert.addAlertController(strTittle: "Error!", strMessage: "Incorrect Password", viewC: self)
+            }
+            else{
+                let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        else{
+            Alert.addAlertController(strTittle: "Error!", strMessage: "Email not registered", viewC: self)
+        }
+        
+        if let user = users.firstIndex(where: {$0.email == email}) {
+            print(user)
+        }
+        
+    }
+    
     func fetchAllUsers(){
         /*
          Get the all data from Firebase
