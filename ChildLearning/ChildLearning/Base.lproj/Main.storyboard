@@ -5,6 +5,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -580,6 +582,89 @@
             </objects>
             <point key="canvasLocation" x="4029" y="84"/>
         </scene>
+        <!--Buttons View Controller-->
+        <scene sceneID="xGS-Pg-ksY">
+            <objects>
+                <viewController storyboardIdentifier="ButtonsViewController" id="cNZ-0w-UnI" customClass="ButtonsViewController" customModule="ChildLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BO8-IF-8Fh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zGI-QH-CDv">
+                                <rect key="frame" x="15" y="98" width="384" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nlp-KL-Xnd">
+                                    <size key="itemSize" width="181" height="138"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="40" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ButtonCollectionViewCell" id="TMF-wa-OnQ" customClass="ButtonCollectionViewCell" customModule="ChildLearning" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="40" width="181" height="138"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="D1S-NV-0cf">
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="138"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6H7-e1-qlw">
+                                                    <rect key="frame" x="5" y="5" width="171" height="128"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6H7-e1-qlw" firstAttribute="leading" secondItem="D1S-NV-0cf" secondAttribute="leading" constant="5" id="5Ys-hx-N27"/>
+                                                <constraint firstAttribute="bottom" secondItem="6H7-e1-qlw" secondAttribute="bottom" constant="5" id="MjB-4s-DwH"/>
+                                                <constraint firstAttribute="trailing" secondItem="6H7-e1-qlw" secondAttribute="trailing" constant="5" id="R6e-VJ-dwa"/>
+                                                <constraint firstItem="6H7-e1-qlw" firstAttribute="top" secondItem="D1S-NV-0cf" secondAttribute="top" constant="5" id="bee-DU-Ymc"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.56470588239999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="customSize" width="181" height="138"/>
+                                        <connections>
+                                            <outlet property="lblName" destination="6H7-e1-qlw" id="mdV-6O-ApG"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="cNZ-0w-UnI" id="XfO-x8-vAQ"/>
+                                    <outlet property="delegate" destination="cNZ-0w-UnI" id="0bs-Fg-1ED"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YG3-ap-ZJq"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zGI-QH-CDv" firstAttribute="leading" secondItem="YG3-ap-ZJq" secondAttribute="leading" constant="15" id="0wj-Go-M4W"/>
+                            <constraint firstAttribute="bottom" secondItem="zGI-QH-CDv" secondAttribute="bottom" constant="20" id="8No-uj-t2g"/>
+                            <constraint firstItem="zGI-QH-CDv" firstAttribute="top" secondItem="YG3-ap-ZJq" secondAttribute="top" constant="10" id="poH-aM-KlK"/>
+                            <constraint firstItem="YG3-ap-ZJq" firstAttribute="trailing" secondItem="zGI-QH-CDv" secondAttribute="trailing" constant="15" id="yqY-55-do8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TNk-Vg-CJQ">
+                        <leftBarButtonItems>
+                            <barButtonItem image="back" style="done" id="TA2-kf-EfB">
+                                <color key="tintColor" red="1" green="0.56470588239999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="backClicked:" destination="cNZ-0w-UnI" id="reT-U7-LH2"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Words" style="done" id="nFD-MI-7Un">
+                                <color key="tintColor" red="1" green="0.56470588239999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionVWords" destination="zGI-QH-CDv" id="xQg-nr-QNf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4c-Xo-6ED" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4749" y="95"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back" width="30" height="30"/>
@@ -587,5 +672,8 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
