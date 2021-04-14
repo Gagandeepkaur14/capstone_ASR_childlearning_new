@@ -13,6 +13,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var txtFName: UITextField!
     @IBOutlet weak var txtFEmail: UITextField!
     @IBOutlet weak var txtFPassword: UITextField!
+    
     var ref: DatabaseReference!
     var users: [Users] = []
     

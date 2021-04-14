@@ -70,6 +70,41 @@ class LoginViewController: UIViewController {
         
     }
     
+    func fetchFbLogin(email: String){
+
+        if let singleUser = users.enumerated().first(where: {$0.element.email == email}) {
+
+            let user = singleUser.element
+            if user.password == "facebook"{
+                let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else{
+                Alert.addAlertController(strTittle: "Error!", strMessage: "User not registered with facebook", viewC: self)
+            }
+               
+        }
+        else{
+            Alert.addAlertController(strTittle: "Error!", strMessage: "Email not registered", viewC: self)
+        }
+        
+    }
+    
+    func signupObserverFirebase(email: String,name: String){
+        let data = ["name": name,
+                    "email": email,
+                    "password" : "facebook"] as [String : Any]
+        
+        if users.contains(where: {$0.email == email }){
+            Alert.addAlertController(strTittle: "", strMessage: "Email alreday registered", viewC: self)
+        }
+        else{
+            ref.child(Constant.FirebaseData.User).childByAutoId().setValue(data)
+            let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
     
     func fetchAllUsers(){
@@ -107,6 +142,7 @@ class LoginViewController: UIViewController {
                 if (error == nil){
                     if  let dict = result as? [String : Any]{
                        print(dict)
+                        self.signupObserverFirebase(email: dict["email"] as? String ?? "", name: dict["name"] as? String ?? "")
                     }
                 }
             })
