@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseStorage
 
 class ButtonsViewController: UIViewController {
 
@@ -14,10 +15,21 @@ class ButtonsViewController: UIViewController {
     var arr = [String]()
     var isNumbers = Bool()
     var isAlphabets = Bool()
+    var isWords = Bool()
+    var words = [Words]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if isNumbers{
+            fetchNumbers()
+        }
+        else if isAlphabets{
+            fetchAlphabets()
+        }
+        else{
+            fetchWords()
+        }
+       
         // Do any additional setup after loading the view.
     }
     
