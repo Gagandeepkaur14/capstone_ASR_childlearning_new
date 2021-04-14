@@ -96,7 +96,7 @@ class LoginViewController: UIViewController {
                     "password" : "facebook"] as [String : Any]
         
         if users.contains(where: {$0.email == email }){
-            Alert.addAlertController(strTittle: "", strMessage: "Email alreday registered", viewC: self)
+            fetchFbLogin(email: email)
         }
         else{
             ref.child(Constant.FirebaseData.User).childByAutoId().setValue(data)
