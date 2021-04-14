@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseStorage
+import SDWebImage
 
 class ButtonsViewController: UIViewController {
 
@@ -130,7 +131,7 @@ class ButtonsViewController: UIViewController {
                        
                     }
                    }
-                print(words)
+                print(self.words)
               //  print(words[0].Name)
                 self.arr = list.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
                     self.collectionVWords.reloadData()
@@ -161,13 +162,25 @@ class ButtonsViewController: UIViewController {
 extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isWords{
+            return words.count
+        }
         return arr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCollectionViewCell", for: indexPath) as! ButtonCollectionViewCell
         cell.layer.cornerRadius = 5.0
-        cell.lblName.text = arr[indexPath.row].capitalized
+        if isWords{
+            cell.imgV.isHidden = false
+            let word = words[indexPath.row]
+            cell.imgV.sd_setImage(with: URL(string: word.Name), placeholderImage: nil)
+        }
+        else{
+            cell.imgV.isHidden = true
+            cell.lblName.text = arr[indexPath.row].capitalized
+        }
+      
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
