@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29CF38EA29E660C5C66C4842 /* Pods_ChildLearning_ChildLearningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BFCFBE97959EEB2059C3E8 /* Pods_ChildLearning_ChildLearningUITests.framework */; };
+		62073BEE2626ACB000B0DCA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62073BED2626ACB000B0DCA7 /* GoogleService-Info.plist */; };
 		62A28F5D2622DC0D008163C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28F5C2622DC0D008163C3 /* AppDelegate.swift */; };
 		62A28F5F2622DC0D008163C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28F5E2622DC0D008163C3 /* SceneDelegate.swift */; };
 		62A28F612622DC0D008163C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A28F602622DC0D008163C3 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		5D3D80A360118787857AB4E2 /* Pods-ChildLearningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChildLearningTests.debug.xcconfig"; path = "Target Support Files/Pods-ChildLearningTests/Pods-ChildLearningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DB01C8565908BB091B9E457 /* Pods-ChildLearning-ChildLearningUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChildLearning-ChildLearningUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChildLearning-ChildLearningUITests/Pods-ChildLearning-ChildLearningUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F9ED22D4B4F3730309E17E2 /* Pods-ChildLearning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChildLearning.debug.xcconfig"; path = "Target Support Files/Pods-ChildLearning/Pods-ChildLearning.debug.xcconfig"; sourceTree = "<group>"; };
+		62073BED2626ACB000B0DCA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62A28F592622DC0D008163C3 /* ChildLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChildLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A28F5C2622DC0D008163C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62A28F5E2622DC0D008163C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		62A28F5B2622DC0D008163C3 /* ChildLearning */ = {
 			isa = PBXGroup;
 			children = (
+				62073BED2626ACB000B0DCA7 /* GoogleService-Info.plist */,
 				62A28F5C2622DC0D008163C3 /* AppDelegate.swift */,
 				62A28F5E2622DC0D008163C3 /* SceneDelegate.swift */,
 				62A28F602622DC0D008163C3 /* ViewController.swift */,
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62A28F692622DC10008163C3 /* LaunchScreen.storyboard in Resources */,
+				62073BEE2626ACB000B0DCA7 /* GoogleService-Info.plist in Resources */,
 				62A28F662622DC10008163C3 /* Assets.xcassets in Resources */,
 				62A28F642622DC0D008163C3 /* Main.storyboard in Resources */,
 			);
