@@ -19,7 +19,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="qnh-NT-SJB">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="CHILD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngC-qi-bTy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHILD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngC-qi-bTy">
                                 <rect key="frame" x="30" y="348" width="354" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="29"/>
                                 <color key="textColor" red="0.41568627450000001" green="0.1529411765" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -31,13 +31,13 @@
                                 <color key="textColor" red="0.4549019608" green="0.79215686269999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4G-35-ulI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4G-35-ulI">
                                 <rect key="frame" x="30" y="308" width="354" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="29"/>
                                 <color key="textColor" red="1" green="0.79215686269999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="LEARNING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Km1-9m-4IH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEARNING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Km1-9m-4IH">
                                 <rect key="frame" x="30" y="388" width="354" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="29"/>
                                 <color key="textColor" red="1" green="0.56470588239999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -52,6 +52,7 @@
                             <constraint firstItem="ngC-qi-bTy" firstAttribute="trailing" secondItem="F4G-35-ulI" secondAttribute="trailing" id="MkX-TC-L5T"/>
                             <constraint firstItem="qnh-NT-SJB" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="SQO-wv-dqV"/>
                             <constraint firstItem="ngC-qi-bTy" firstAttribute="leading" secondItem="F4G-35-ulI" secondAttribute="leading" id="TlI-T3-Ghz"/>
+                            <constraint firstItem="F4G-35-ulI" firstAttribute="leading" secondItem="fmO-8F-f3N" secondAttribute="leading" id="Upn-G2-7hI"/>
                             <constraint firstItem="F4G-35-ulI" firstAttribute="top" secondItem="fmO-8F-f3N" secondAttribute="bottom" id="cPP-dm-e4i"/>
                             <constraint firstAttribute="bottom" secondItem="qnh-NT-SJB" secondAttribute="bottom" id="i6z-cQ-K9U"/>
                             <constraint firstItem="qnh-NT-SJB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="il3-eZ-PEc"/>
@@ -60,6 +61,7 @@
                             <constraint firstItem="Km1-9m-4IH" firstAttribute="leading" secondItem="ngC-qi-bTy" secondAttribute="leading" id="pH0-9Q-ncb"/>
                             <constraint firstItem="fmO-8F-f3N" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-160" id="qL1-T6-KTA"/>
                             <constraint firstItem="Km1-9m-4IH" firstAttribute="trailing" secondItem="ngC-qi-bTy" secondAttribute="trailing" id="tUL-Ro-bZY"/>
+                            <constraint firstItem="F4G-35-ulI" firstAttribute="trailing" secondItem="fmO-8F-f3N" secondAttribute="trailing" id="uVw-WA-OYb"/>
                             <constraint firstItem="Km1-9m-4IH" firstAttribute="top" secondItem="ngC-qi-bTy" secondAttribute="bottom" id="wSo-bv-BEH"/>
                         </constraints>
                     </view>

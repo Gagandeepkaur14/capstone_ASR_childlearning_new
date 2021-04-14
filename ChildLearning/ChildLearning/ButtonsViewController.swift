@@ -18,20 +18,27 @@ class ButtonsViewController: UIViewController {
     var isAlphabets = Bool()
     var isWords = Bool()
     var words = [Words]()
+    var colorArray: [UIColor] = [UIColor(red: 116/255, green: 29/255, blue: 149/255, alpha: 1.0),
+                      UIColor(red: 255/255, green: 202/255, blue: 0/255, alpha: 1.0),
+                      UIColor(red: 255/255, green: 114/255, blue: 0/255, alpha: 1.0),
+                      UIColor(red: 116/255, green: 202/255, blue: 0/255, alpha: 1.0),]
+    var color = UIColor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if isNumbers{
             fetchNumbers()
+            color = colorArray[2]
+            
         }
         else if isAlphabets{
             fetchAlphabets()
+            color = colorArray[1]
         }
         else{
             fetchWords()
+            color = colorArray[0]
         }
-       
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,72 +105,26 @@ class ButtonsViewController: UIViewController {
             if let err = error {
                    print("Error getting documents: \(err)")
                } else {
-                var list = [String]()
-               
-                var strTitle = String()
                    for document in query!.documents {
-                       print("\(document.documentID) => \(document.data())")
                     if let doc = document.data() as? [String: Any]{
-                       if let str =  doc["title"] as? String{
-                       strTitle = str
-                        }
                         if let value =  doc["Name"] as? DocumentReference{
-                            print("value ------ \(value)")
                             value.getDocument { (document, error) in
-                                print("document ------ \(document?.metadata)")
-                                print("document id------ \(document?.documentID)")
                                 let storageRef = Storage.storage().reference(withPath: document?.documentID ?? "")
-                                let url = (Storage.storage().reference(forURL: storageRef.description))
-                               // self.imgV.sd_setImage(with: url, placeholderImage: nil)
-                                print(Storage.storage().reference(forURL: storageRef.description))
-                                
                                 storageRef.downloadURL { url, error in
-                                    print("url ----- \(url)")
-                                    let word = Words(title: strTitle, Name:  url?.absoluteString ?? "")
+                                    let str1 = doc["title"] as? String ?? ""
+                                    let word = Words(title: str1, Name:  url?.absoluteString ?? "")
                                     self.words.append(word)
                                     self.collectionVWords.reloadData()
-                                    print("error ----- \(error)")
-                                  if let error = error {
-                                    // Handle any errors
-                                    
-                                  } else {
-                                    // Get the download URL for 'images/stars.jpg'
-                                  }
                                 }
-                                
-                                let reference = storageRef.child("images/stars.jpg")
-                                
                             }
-                            
-                            
-                          //  list.append(value)
                         }
                        
                     }
                    }
                 print(self.words)
-              //  print(words[0].Name)
-                self.arr = list.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
                     self.collectionVWords.reloadData()
                }
         }
-        db.collection(Constant.FirebaseData.Words).addSnapshotListener(includeMetadataChanges: true) { (query, error) in
-            print("query ===== \(query)")
-            guard let query = query else {
-                if let error = error {
-                    print("error getting images: ", error.localizedDescription)
-                }
-                return
-            }
-           
-   
-            
-        }
-        
-        
-        
-       
-       
     }
     
 
@@ -181,6 +142,7 @@ extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCollectionViewCell", for: indexPath) as! ButtonCollectionViewCell
+        cell.backgroundColor = color
         cell.layer.cornerRadius = 5.0
         if isWords{
             cell.imgV.isHidden = false
@@ -198,6 +160,8 @@ extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataS
         let vc = self.storyboard?.instantiateViewController(identifier: "SpeakViewController") as! SpeakViewController
         if isWords{
             vc.strWord = words[indexPath.row].title
+            vc.isWord = true
+            vc.word = words[indexPath.row]
         }
         else{
             vc.strWord = arr[indexPath.row]

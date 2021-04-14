@@ -70,6 +70,8 @@ class LoginViewController: UIViewController {
         
     }
     
+    
+    
     func fetchAllUsers(){
         /*
          Get the all data from Firebase

@@ -10,16 +10,27 @@ class SpeakViewController: UIViewController {
     @IBOutlet weak var lblTitle: UIBarButtonItem!
     
     var strWord = String()
-    var isWord = String()
+    var isWord = Bool()
     var synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var lblName: UILabel!
     var utterance = AVSpeechUtterance()
-    
+    var word: Words!
+    @IBOutlet weak var imgV: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblName.text = strWord
+        imgV.isHidden = true
+        print("str word -----\(strWord)")
+        if isWord{
+            imgV.isHidden = false
+            imgV.sd_setImage(with: URL(string: word.Name), placeholderImage: nil)
+        }
+        else{
+            lblName.text = strWord
+        }
+       
         synthesizer = AVSpeechSynthesizer()
-
+        synthesizer.delegate = self
+textToSpeech()
         // Do any additional setup after loading the view.
     }
     
