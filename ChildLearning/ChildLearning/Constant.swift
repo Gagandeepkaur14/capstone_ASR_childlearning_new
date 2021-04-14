@@ -13,5 +13,6 @@ class Constant: NSObject {
         static let Numbers = "Numbers"
         static let User = "User"
        static let Alphabets = "Alphabets"
+        static let Words = "Words"
     }
 }

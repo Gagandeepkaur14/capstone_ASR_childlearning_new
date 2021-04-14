@@ -70,6 +70,79 @@ class ButtonsViewController: UIViewController {
        
     }
     
+    func fetchWords(){
+        let db = Firestore.firestore()
+        db.collection(Constant.FirebaseData.Words).getDocuments { (query, error) in
+            if let err = error {
+                   print("Error getting documents: \(err)")
+               } else {
+                var list = [String]()
+               
+                var strTitle = String()
+                   for document in query!.documents {
+                       print("\(document.documentID) => \(document.data())")
+                    if let doc = document.data() as? [String: Any]{
+                       if let str =  doc["title"] as? String{
+                       strTitle = str
+                        }
+                        if let value =  doc["Name"] as? DocumentReference{
+                            print("value ------ \(value)")
+                            value.getDocument { (document, error) in
+                                print("document ------ \(document?.metadata)")
+                                print("document id------ \(document?.documentID)")
+                                let storageRef = Storage.storage().reference(withPath: document?.documentID ?? "")
+                                let url = (Storage.storage().reference(forURL: storageRef.description))
+                               // self.imgV.sd_setImage(with: url, placeholderImage: nil)
+                                print(Storage.storage().reference(forURL: storageRef.description))
+                                
+                                storageRef.downloadURL { url, error in
+                                    print("url ----- \(url)")
+                                    let word = Words(title: strTitle, Name:  url?.absoluteString ?? "")
+                                    self.words.append(word)
+                                    print("error ----- \(error)")
+                                  if let error = error {
+                                    // Handle any errors
+                                    
+                                  } else {
+                                    // Get the download URL for 'images/stars.jpg'
+                                  }
+                                }
+                                
+                                let reference = storageRef.child("images/stars.jpg")
+                                
+                            }
+                            
+                            
+                          //  list.append(value)
+                        }
+                       
+                    }
+                   }
+                print(words)
+              //  print(words[0].Name)
+                self.arr = list.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
+                    self.collectionVWords.reloadData()
+               }
+        }
+        db.collection(Constant.FirebaseData.Words).addSnapshotListener(includeMetadataChanges: true) { (query, error) in
+            print("query ===== \(query)")
+            guard let query = query else {
+                if let error = error {
+                    print("error getting images: ", error.localizedDescription)
+                }
+                return
+            }
+           
+   
+            
+        }
+        
+        
+        
+       
+       
+    }
+    
 
 }
 
