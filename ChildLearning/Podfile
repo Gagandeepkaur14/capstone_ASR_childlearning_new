@@ -12,6 +12,7 @@ target 'ChildLearning' do
   pod 'Firebase/Database'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'SDWebImage'
 
   target 'ChildLearningTests' do
     inherit! :search_paths

@@ -313,6 +313,9 @@ PODS:
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
 
 DEPENDENCIES:
   - FacebookLogin
@@ -320,6 +323,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - IQKeyboardManagerSwift
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -344,6 +348,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SDWebImage
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -367,7 +372,8 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
 
-PODFILE CHECKSUM: a017ec790aac3edbed0ae29694089afd0115d7f8
+PODFILE CHECKSUM: 94dfa15f3de34278e7f9b92d79b95336507ccaf5
 
 COCOAPODS: 1.10.1
