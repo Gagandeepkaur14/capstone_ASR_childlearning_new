@@ -668,6 +668,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionVWords" destination="zGI-QH-CDv" id="xQg-nr-QNf"/>
+                        <outlet property="imgTitle" destination="TA2-kf-EfB" id="H7i-tp-sIh"/>
+                        <outlet property="lblTitle" destination="nFD-MI-7Un" id="xE0-HK-8Z2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4c-Xo-6ED" sceneMemberID="firstResponder"/>

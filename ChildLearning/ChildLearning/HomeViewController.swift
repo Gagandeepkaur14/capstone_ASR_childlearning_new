@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet var btnsHome: [UIButton]!
-    
+    var strUserName = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         for i in btnsHome{
@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
             i.layer.cornerRadius = i.frame.size.height/2
             i.layer.borderColor = UIColor.white.cgColor
         }
+        lblUserName.text = strUserName
         // Do any additional setup after loading the view.
     }
     

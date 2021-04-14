@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
         self.ref = Database.database().reference()
         fetchAllUsers()
         // Do any additional setup after loading the view.
@@ -57,6 +58,7 @@ class LoginViewController: UIViewController {
             }
             else{
                 let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                vc.strUserName = user.name
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
@@ -77,6 +79,7 @@ class LoginViewController: UIViewController {
             let user = singleUser.element
             if user.password == "facebook"{
                 let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                vc.strUserName = user.name
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else{
@@ -101,6 +104,7 @@ class LoginViewController: UIViewController {
         else{
             ref.child(Constant.FirebaseData.User).childByAutoId().setValue(data)
             let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+            vc.strUserName = name
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

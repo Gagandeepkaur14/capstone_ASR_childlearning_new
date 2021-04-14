@@ -11,22 +11,37 @@ class SpeakViewController: UIViewController {
     
     var strWord = String()
     var isWord = Bool()
+    var isNumbers = Bool()
+    var isAlphabets = Bool()
     var synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var lblName: UILabel!
     var utterance = AVSpeechUtterance()
     var word: Words!
     @IBOutlet weak var imgV: UIImageView!
+    var color = UIColor()
     override func viewDidLoad() {
         super.viewDidLoad()
         imgV.isHidden = true
         print("str word -----\(strWord)")
-        if isWord{
-            imgV.isHidden = false
-            imgV.sd_setImage(with: URL(string: word.Name), placeholderImage: nil)
+        
+        if isNumbers{
+            lblName.text = strWord
+            color = colorArray[2]
+            lblTitle.title = "Numbers"
+            
+            
+        }
+        else if isAlphabets{
+            lblName.text = strWord
+            color = colorArray[1]
+            lblTitle.title = "Alphabets"
         }
         else{
-            lblName.text = strWord
+            imgV.isHidden = false
+            imgV.sd_setImage(with: URL(string: word.Name), placeholderImage: nil)
+            lblTitle.title = "Words"
         }
+        lblTitle.tintColor = color
        
         synthesizer = AVSpeechSynthesizer()
         synthesizer.delegate = self

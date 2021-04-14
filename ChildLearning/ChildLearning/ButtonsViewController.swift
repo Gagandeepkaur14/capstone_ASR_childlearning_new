@@ -10,18 +10,21 @@ import FirebaseFirestore
 import FirebaseStorage
 import SDWebImage
 
-class ButtonsViewController: UIViewController {
+var colorArray: [UIColor] = [UIColor(red: 116/255, green: 29/255, blue: 149/255, alpha: 1.0),
+                  UIColor(red: 255/255, green: 202/255, blue: 0/255, alpha: 1.0),
+                  UIColor(red: 255/255, green: 114/255, blue: 0/255, alpha: 1.0),
+                  UIColor(red: 116/255, green: 202/255, blue: 0/255, alpha: 1.0),]
 
+class ButtonsViewController: UIViewController {
+    @IBOutlet weak var lblTitle: UIBarButtonItem!
+    @IBOutlet weak var imgTitle: UIBarButtonItem!
     @IBOutlet weak var collectionVWords: UICollectionView!
     var arr = [String]()
     var isNumbers = Bool()
     var isAlphabets = Bool()
     var isWords = Bool()
     var words = [Words]()
-    var colorArray: [UIColor] = [UIColor(red: 116/255, green: 29/255, blue: 149/255, alpha: 1.0),
-                      UIColor(red: 255/255, green: 202/255, blue: 0/255, alpha: 1.0),
-                      UIColor(red: 255/255, green: 114/255, blue: 0/255, alpha: 1.0),
-                      UIColor(red: 116/255, green: 202/255, blue: 0/255, alpha: 1.0),]
+    
     var color = UIColor()
     
     override func viewDidLoad() {
@@ -29,16 +32,22 @@ class ButtonsViewController: UIViewController {
         if isNumbers{
             fetchNumbers()
             color = colorArray[2]
+            lblTitle.title = "Numbers"
+            
             
         }
         else if isAlphabets{
             fetchAlphabets()
             color = colorArray[1]
+            lblTitle.title = "Alphabets"
         }
         else{
             fetchWords()
             color = colorArray[0]
+            lblTitle.title = "Words"
         }
+        lblTitle.tintColor = color
+        imgTitle.tintColor = color
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -158,6 +167,9 @@ extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(identifier: "SpeakViewController") as! SpeakViewController
+        vc.isWord = isWords
+        vc.isAlphabets = isAlphabets
+        vc.isNumbers = isNumbers
         if isWords{
             vc.strWord = words[indexPath.row].title
             vc.isWord = true
