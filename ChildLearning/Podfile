@@ -11,6 +11,7 @@ target 'ChildLearning' do
   pod 'FacebookLogin'
   pod 'Firebase/Database'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
   target 'ChildLearningTests' do
     inherit! :search_paths
