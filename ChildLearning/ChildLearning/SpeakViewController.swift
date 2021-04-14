@@ -7,7 +7,8 @@ import UIKit
 import AVFoundation
 
 class SpeakViewController: UIViewController {
-
+    @IBOutlet weak var lblTitle: UIBarButtonItem!
+    
     var strWord = String()
     var synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var lblName: UILabel!

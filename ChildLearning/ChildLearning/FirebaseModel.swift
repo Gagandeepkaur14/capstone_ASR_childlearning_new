@@ -26,3 +26,12 @@ struct Users {
 
     }
 }
+
+struct Words {
+    var title = ""
+    var Name = ""
+    init(title: String, Name: String) {
+        self.Name = Name
+        self.title = title
+    }
+}
