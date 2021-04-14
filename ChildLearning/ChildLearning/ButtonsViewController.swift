@@ -34,6 +34,15 @@ class ButtonsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    @IBAction func backClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func fetchAlphabets(){
         let db = Firestore.firestore()
         db.collection(Constant.FirebaseData.Alphabets).getDocuments { (query, error) in
@@ -112,6 +121,7 @@ class ButtonsViewController: UIViewController {
                                     print("url ----- \(url)")
                                     let word = Words(title: strTitle, Name:  url?.absoluteString ?? "")
                                     self.words.append(word)
+                                    self.collectionVWords.reloadData()
                                     print("error ----- \(error)")
                                   if let error = error {
                                     // Handle any errors
@@ -163,6 +173,7 @@ extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isWords{
+            print("word ------\(words.count)")
             return words.count
         }
         return arr.count
@@ -185,7 +196,14 @@ extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(identifier: "SpeakViewController") as! SpeakViewController
-        vc.strWord = arr[indexPath.row]
+        if isWords{
+            vc.strWord = words[indexPath.row].title
+        }
+        else{
+            vc.strWord = arr[indexPath.row]
+        }
+      
+      
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

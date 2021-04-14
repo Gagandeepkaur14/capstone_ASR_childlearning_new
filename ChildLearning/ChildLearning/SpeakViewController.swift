@@ -10,6 +10,7 @@ class SpeakViewController: UIViewController {
     @IBOutlet weak var lblTitle: UIBarButtonItem!
     
     var strWord = String()
+    var isWord = String()
     var synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var lblName: UILabel!
     var utterance = AVSpeechUtterance()

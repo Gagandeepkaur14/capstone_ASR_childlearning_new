@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func wordClicked(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(identifier: "ButtonsViewController") as! ButtonsViewController
+        vc.isWords = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
