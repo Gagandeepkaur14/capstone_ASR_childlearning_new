@@ -112,6 +112,14 @@ extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSour
       
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if  indexFinal == indexPath.row{
+            
+        }
+    }
+    
+    
 }
 
 extension PlayViewController: UICollectionViewDelegateFlowLayout {
