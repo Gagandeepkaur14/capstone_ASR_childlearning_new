@@ -31,24 +31,23 @@ class ButtonsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if isNumbers{
-            Constant.appDelegate.fetchNumbers()
+           arr = Constant.appDelegate.arrNumber
             color = colorArray[2]
             lblTitle.title = "Numbers"
-            
-            
         }
         else if isAlphabets{
-            Constant.appDelegate.fetchAlphabets()
+           arr = Constant.appDelegate.arrAlphabets
             color = colorArray[1]
             lblTitle.title = "Alphabets"
         }
         else{
-            Constant.appDelegate.fetchWords()
+           words = Constant.appDelegate.words
             color = colorArray[0]
             lblTitle.title = "Words"
         }
         lblTitle.tintColor = color
         imgTitle.tintColor = color
+        collectionVWords.reloadData()
         print("alphabeys ------ \(Constant.appDelegate.arrAlphabets)")
     }
     
@@ -87,7 +86,7 @@ extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataS
         cell.layer.cornerRadius = 5.0
         if isWords{
             cell.imgV.isHidden = false
-            let word = words[indexPath.row]
+            let word = Constant.appDelegate.words[indexPath.row]
             cell.imgV.sd_setImage(with: URL(string: word.Name), placeholderImage: nil)
         }
         else{
@@ -110,8 +109,6 @@ extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataS
         else{
             vc.strWord = arr[indexPath.row]
         }
-      
-      
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

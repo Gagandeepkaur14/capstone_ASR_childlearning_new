@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                )
         fetchAlphabets()
         fetchNumbers()
+        fetchWords()
         // Override point for customization after application launch.
         return true
     }
