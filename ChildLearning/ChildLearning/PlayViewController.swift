@@ -22,6 +22,7 @@ class PlayViewController: UIViewController {
     var indexFinal = Int()
     var player = AVAudioPlayer()
     var arrWord = [Words]()
+    var arrWordFinal = [Words]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class PlayViewController: UIViewController {
         synthesizer.delegate = self
         if isWords{
             arrWord = Constant.appDelegate.words
-            showWordData()
+           return
         }
         else if isNumber{
             arr = Constant.appDelegate.arrNumber
@@ -69,27 +70,28 @@ class PlayViewController: UIViewController {
     }
     
     func showWordData(){
-        var resultSet = Set<String>()
-        var resultSetFinal = Set<String>()
+        var resultSet = [Words]()
+        var resultSetFinal = [Words]()
 
         while resultSet.count < 4 {
-            let randomIndex = Int(arc4random_uniform(UInt32(arr.count)))
-            resultSet.insert(arr[randomIndex])
+            let randomIndex = Int(arc4random_uniform(UInt32(arrWord.count)))
+            resultSet.insert(arrWord[randomIndex], at: 0)
         }
-        arrFinal = Array(resultSet)
+        arrWordFinal = Array(resultSet)
         print(arrFinal)
         
         while resultSetFinal.count < 1 {
-            let randomIndex = Int(arc4random_uniform(UInt32(arrFinal.count)))
-            resultSetFinal.insert(arrFinal[randomIndex])
+            let randomIndex = Int(arc4random_uniform(UInt32(arrWordFinal.count)))
+            resultSetFinal.insert(arrWordFinal[randomIndex], at: 0)
         }
         print("result ----- \(Array(resultSetFinal))")
         let arrSingle = Array(resultSetFinal)
         if arrSingle.count > 0{
-            let str = arrSingle[0]
-            indexFinal = arrFinal.lastIndex(of: str) ?? 0
-            print("index -------- \(indexFinal)")
-            textToSpeech(str: "Where is \(str)")
+            let word = arrSingle[0]
+            let index = arrWordFinal.filter { $0.title == word.title }
+            
+            textToSpeech(str: "Where is \(word.title)")
+          
         }
         collectionVPlay.reloadData()
     }
@@ -118,7 +120,7 @@ class PlayViewController: UIViewController {
                 // Getting text to read from the UITextView (textView).
                 utterance = AVSpeechUtterance(string: str)
                 utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-                self.utterance.rate = 0.3
+                self.utterance.rate = 0.35
                 synthesizer.speak(utterance)
             }
         }
@@ -129,7 +131,7 @@ class PlayViewController: UIViewController {
 extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrFinal.count
+        return isWords ? 0 : arrFinal.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -153,6 +155,7 @@ extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSour
             playClap()
         }
         else{
+            textToSpeech(str: "Sorry Please try again")
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         }
     }
