@@ -119,7 +119,7 @@ extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSour
             playClap()
         }
         else{
-            
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         }
     }
     
