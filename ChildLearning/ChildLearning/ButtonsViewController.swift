@@ -49,6 +49,7 @@ class ButtonsViewController: UIViewController {
         }
         lblTitle.tintColor = color
         imgTitle.tintColor = color
+        print("alphabeys ------ \(Constant.appDelegate.arrAlphabets)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

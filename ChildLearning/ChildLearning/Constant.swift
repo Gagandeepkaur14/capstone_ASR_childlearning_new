@@ -8,6 +8,7 @@
 import UIKit
 
 class Constant: NSObject {
+   static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     struct FirebaseData {
         static let Numbers = "Numbers"
