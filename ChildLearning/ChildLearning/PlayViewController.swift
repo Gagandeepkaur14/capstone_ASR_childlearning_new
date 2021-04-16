@@ -20,6 +20,7 @@ class PlayViewController: UIViewController {
     var synthesizer = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance()
     var indexFinal = Int()
+    var player = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,11 +116,23 @@ extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if  indexFinal == indexPath.row{
+            playClap()
+        }
+        else{
             
         }
     }
     
-    
+    func playClap(){
+        let path = Bundle.main.path(forResource: "applause", ofType : "mp3")!
+           let url = URL(fileURLWithPath : path)
+           do {
+               player = try AVAudioPlayer(contentsOf: url)
+               player.play()
+           } catch {
+               print ("There is an issue with this code!")
+           }
+    }
 }
 
 extension PlayViewController: UICollectionViewDelegateFlowLayout {
