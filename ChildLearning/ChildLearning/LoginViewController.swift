@@ -49,9 +49,7 @@ class LoginViewController: UIViewController {
     }
     
     func fetchLogin(email: String, password: String){
-
         if let singleUser = users.enumerated().first(where: {$0.element.email == email}) {
-
             let user = singleUser.element
             if user.password != password{
                 Alert.addAlertController(strTittle: "Error!", strMessage: "Incorrect Password", viewC: self)
@@ -65,7 +63,6 @@ class LoginViewController: UIViewController {
         else{
             Alert.addAlertController(strTittle: "Error!", strMessage: "Email not registered", viewC: self)
         }
-        
         if let user = users.firstIndex(where: {$0.email == email}) {
             print(user)
         }

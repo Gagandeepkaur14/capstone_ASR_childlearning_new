@@ -61,7 +61,11 @@ class ButtonsViewController: UIViewController {
     }
     
     @IBAction func playClicked(_ sender: Any) {
-        
+        let vc = self.storyboard?.instantiateViewController(identifier: "PlayViewController") as! PlayViewController
+        vc.isWords = isWords
+        vc.isNumber = isNumbers
+        vc.isAlphabet = isAlphabets
+        self.navigationController?.pushViewController(vc, animated: true)
     }
    
     
