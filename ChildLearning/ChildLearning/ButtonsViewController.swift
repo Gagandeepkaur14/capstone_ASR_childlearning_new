@@ -15,6 +15,8 @@ import SDWebImage
 class ButtonsViewController: UIViewController {
     @IBOutlet weak var lblTitle: UIBarButtonItem!
     @IBOutlet weak var imgTitle: UIBarButtonItem!
+    
+    @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var collectionVWords: UICollectionView!
     var arr = [String]()
     var isNumbers = Bool()
@@ -30,6 +32,7 @@ class ButtonsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnPlay.layer.cornerRadius = 3.0
         if isNumbers{
            arr = Constant.appDelegate.arrNumber
             color = colorArray[2]

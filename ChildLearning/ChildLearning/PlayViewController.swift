@@ -21,21 +21,28 @@ class PlayViewController: UIViewController {
     var utterance = AVSpeechUtterance()
     var indexFinal = Int()
     var player = AVAudioPlayer()
+    var arrWord = [Words]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         synthesizer = AVSpeechSynthesizer()
         synthesizer.delegate = self
-        
         if isWords{
-            
+            arrWord = Constant.appDelegate.words
+            showWordData()
         }
         else if isNumber{
             arr = Constant.appDelegate.arrNumber
+            showData()
         }
         else{
             arr = Constant.appDelegate.arrAlphabets
+            showData()
         }
+       
+    }
+    
+    func showData(){
         var resultSet = Set<String>()
         var resultSetFinal = Set<String>()
 
@@ -57,10 +64,36 @@ class PlayViewController: UIViewController {
             indexFinal = arrFinal.lastIndex(of: str) ?? 0
             print("index -------- \(indexFinal)")
             textToSpeech(str: "Where is \(str)")
-            
         }
-        // Do any additional setup after loading the view.
+        collectionVPlay.reloadData()
     }
+    
+    func showWordData(){
+        var resultSet = Set<String>()
+        var resultSetFinal = Set<String>()
+
+        while resultSet.count < 4 {
+            let randomIndex = Int(arc4random_uniform(UInt32(arr.count)))
+            resultSet.insert(arr[randomIndex])
+        }
+        arrFinal = Array(resultSet)
+        print(arrFinal)
+        
+        while resultSetFinal.count < 1 {
+            let randomIndex = Int(arc4random_uniform(UInt32(arrFinal.count)))
+            resultSetFinal.insert(arrFinal[randomIndex])
+        }
+        print("result ----- \(Array(resultSetFinal))")
+        let arrSingle = Array(resultSetFinal)
+        if arrSingle.count > 0{
+            let str = arrSingle[0]
+            indexFinal = arrFinal.lastIndex(of: str) ?? 0
+            print("index -------- \(indexFinal)")
+            textToSpeech(str: "Where is \(str)")
+        }
+        collectionVPlay.reloadData()
+    }
+
     
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -101,6 +134,7 @@ extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCollectionViewCell", for: indexPath) as! ButtonCollectionViewCell
+        cell.layer.cornerRadius = 5.0
         if isWords{
             cell.imgV.isHidden = false
 //            let word = words[indexPath.row]
@@ -127,11 +161,31 @@ extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let path = Bundle.main.path(forResource: "applause", ofType : "mp3")!
            let url = URL(fileURLWithPath : path)
            do {
+            NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying(sender:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+            
                player = try AVAudioPlayer(contentsOf: url)
+            player.delegate = self
                player.play()
            } catch {
                print ("There is an issue with this code!")
            }
+    }
+    
+    @objc func playerDidFinishPlaying(sender: Notification) {
+        // Your code here
+        showData()
+    }
+}
+
+extension PlayViewController: AVAudioPlayerDelegate {
+
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if flag {
+            // After successfully finish song playing will stop audio player and remove from memory
+            print("Audio player finished playing")
+            showData()
+            // Write code to play next audio.
+        }
     }
 }
 
