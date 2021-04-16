@@ -60,6 +60,9 @@ class ButtonsViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func playClicked(_ sender: Any) {
+        
+    }
     func fetchAlphabets(){
         let db = Firestore.firestore()
         db.collection(Constant.FirebaseData.Alphabets).getDocuments { (query, error) in

@@ -590,8 +590,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieN-e5-XGB">
+                                <rect key="frame" x="30" y="802" width="354" height="50"/>
+                                <color key="backgroundColor" red="0.4549019608" green="0.79215686269999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="W8h-zU-zKd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="playClicked:" destination="cNZ-0w-UnI" eventType="touchUpInside" id="jNC-OI-xsD"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zGI-QH-CDv">
-                                <rect key="frame" x="15" y="98" width="384" height="778"/>
+                                <rect key="frame" x="15" y="98" width="384" height="689"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nlp-KL-Xnd">
                                     <size key="itemSize" width="181" height="138"/>
@@ -646,9 +660,12 @@
                         <viewLayoutGuide key="safeArea" id="YG3-ap-ZJq"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ieN-e5-XGB" firstAttribute="leading" secondItem="YG3-ap-ZJq" secondAttribute="leading" constant="30" id="0Bb-HH-fZl"/>
                             <constraint firstItem="zGI-QH-CDv" firstAttribute="leading" secondItem="YG3-ap-ZJq" secondAttribute="leading" constant="15" id="0wj-Go-M4W"/>
-                            <constraint firstAttribute="bottom" secondItem="zGI-QH-CDv" secondAttribute="bottom" constant="20" id="8No-uj-t2g"/>
+                            <constraint firstItem="YG3-ap-ZJq" firstAttribute="trailing" secondItem="ieN-e5-XGB" secondAttribute="trailing" constant="30" id="5Xj-p7-Iy1"/>
+                            <constraint firstItem="YG3-ap-ZJq" firstAttribute="bottom" secondItem="ieN-e5-XGB" secondAttribute="bottom" constant="10" id="A0N-I9-wS4"/>
                             <constraint firstItem="zGI-QH-CDv" firstAttribute="top" secondItem="YG3-ap-ZJq" secondAttribute="top" constant="10" id="poH-aM-KlK"/>
+                            <constraint firstItem="ieN-e5-XGB" firstAttribute="top" secondItem="zGI-QH-CDv" secondAttribute="bottom" constant="15" id="v8C-Hq-onq"/>
                             <constraint firstItem="YG3-ap-ZJq" firstAttribute="trailing" secondItem="zGI-QH-CDv" secondAttribute="trailing" constant="15" id="yqY-55-do8"/>
                         </constraints>
                     </view>
