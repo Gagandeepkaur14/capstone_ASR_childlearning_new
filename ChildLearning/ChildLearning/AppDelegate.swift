@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var arrAlphabets = [String]()
     var arrNumber = [String]()
+    var words = [Words]()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
@@ -104,6 +105,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                }
         }
        
+    }
+    
+    func fetchWords(){
+        let db = Firestore.firestore()
+        db.collection(Constant.FirebaseData.Words).getDocuments { (query, error) in
+            if let err = error {
+                   print("Error getting documents: \(err)")
+               } else {
+                   for document in query!.documents {
+                    if let doc = document.data() as? [String: Any]{
+                        if let value =  doc["Name"] as? DocumentReference{
+                            value.getDocument { (document, error) in
+                                let storageRef = Storage.storage().reference(withPath: document?.documentID ?? "")
+                                storageRef.downloadURL { url, error in
+                                    let str1 = doc["title"] as? String ?? ""
+                                    let word = Words(title: str1, Name:  url?.absoluteString ?? "")
+                                    self.words.append(word)
+                                }
+                            }
+                        }
+                       
+                    }
+                   }
+        }
     }
     
     
