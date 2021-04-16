@@ -31,19 +31,19 @@ class ButtonsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if isNumbers{
-            fetchNumbers()
+            Constant.appDelegate.fetchNumbers()
             color = colorArray[2]
             lblTitle.title = "Numbers"
             
             
         }
         else if isAlphabets{
-            fetchAlphabets()
+            Constant.appDelegate.fetchAlphabets()
             color = colorArray[1]
             lblTitle.title = "Alphabets"
         }
         else{
-            fetchWords()
+            Constant.appDelegate.fetchWords()
             color = colorArray[0]
             lblTitle.title = "Words"
         }
@@ -64,82 +64,10 @@ class ButtonsViewController: UIViewController {
     @IBAction func playClicked(_ sender: Any) {
         
     }
-    func fetchAlphabets(){
-        let db = Firestore.firestore()
-        db.collection(Constant.FirebaseData.Alphabets).getDocuments { (query, error) in
-            if let err = error {
-                   print("Error getting documents: \(err)")
-               } else {
-                var list = [String]()
-                   for document in query!.documents {
-                       print("\(document.documentID) => \(document.data())")
-                    if let doc = document.data() as? [String: Any]{
-                        if let value =  doc["name"] as? String{
-                            print("value ------ \(value)")
-                            list.append(value)
-                        }
-                       
-                    }
-                   }
-                self.arr = list.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
-                    self.collectionVWords.reloadData()
-               }
-        }
-       
-    }
+   
     
-    func fetchNumbers(){
-        let db = Firestore.firestore()
-        print(db.collection(Constant.FirebaseData.Numbers))
-        db.collection(Constant.FirebaseData.Numbers).getDocuments { (query, error) in
-            if let err = error {
-                   print("Error getting documents: \(err)")
-               } else {
-                var list = [String]()
-                   for document in query!.documents {
-                       print("\(document.documentID) => \(document.data())")
-                    if let doc = document.data() as? [String: Any]{
-                        if let value =  doc["name"] as? String{
-                            print("value ------ \(value)")
-                            list.append(value)
-                        }
-                       
-                    }
-                   }
-                self.arr = list.sorted {$0.localizedStandardCompare($1) == .orderedAscending}
-                self.collectionVWords.reloadData()
-               }
-        }
-       
-    }
     
-    func fetchWords(){
-        let db = Firestore.firestore()
-        db.collection(Constant.FirebaseData.Words).getDocuments { (query, error) in
-            if let err = error {
-                   print("Error getting documents: \(err)")
-               } else {
-                   for document in query!.documents {
-                    if let doc = document.data() as? [String: Any]{
-                        if let value =  doc["Name"] as? DocumentReference{
-                            value.getDocument { (document, error) in
-                                let storageRef = Storage.storage().reference(withPath: document?.documentID ?? "")
-                                storageRef.downloadURL { url, error in
-                                    let str1 = doc["title"] as? String ?? ""
-                                    let word = Words(title: str1, Name:  url?.absoluteString ?? "")
-                                    self.words.append(word)
-                                    self.collectionVWords.reloadData()
-                                }
-                            }
-                        }
-                       
-                    }
-                   }
-                print(self.words)
-                    self.collectionVWords.reloadData()
-               }
-        }
-    }
+   
     
 
 }
