@@ -18,30 +18,40 @@ class SpeakViewController: UIViewController {
     var utterance = AVSpeechUtterance()
     var word: Words!
     @IBOutlet weak var imgV: UIImageView!
+    var colorArray: [UIColor] = [UIColor(red: 116/255, green: 29/255, blue: 149/255, alpha: 1.0),
+                      UIColor(red: 255/255, green: 202/255, blue: 0/255, alpha: 1.0),
+                      UIColor(red: 255/255, green: 114/255, blue: 0/255, alpha: 1.0),
+                      UIColor(red: 116/255, green: 202/255, blue: 0/255, alpha: 1.0),]
+    
     var color = UIColor()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imgV.isHidden = true
         print("str word -----\(strWord)")
-        
+     
         if isNumbers{
-            lblName.text = strWord
+            lblName.text = strWord.capitalized
             color = colorArray[2]
-            lblTitle.title = "Numbers"
-            
+            lblTitle.title = "Number"
+           
             
         }
         else if isAlphabets{
-            lblName.text = strWord
+            lblName.text = strWord.capitalized
             color = colorArray[1]
             lblTitle.title = "Alphabets"
         }
         else{
+            color = colorArray[0]
             imgV.isHidden = false
+            lblTitle.title = "Word"
             imgV.sd_setImage(with: URL(string: word.Name), placeholderImage: nil)
-            lblTitle.title = "Words"
+
         }
-        lblTitle.tintColor = color
+        self.view.backgroundColor = color
+        self.lblTitle.tintColor = color
+       
        
         synthesizer = AVSpeechSynthesizer()
         synthesizer.delegate = self

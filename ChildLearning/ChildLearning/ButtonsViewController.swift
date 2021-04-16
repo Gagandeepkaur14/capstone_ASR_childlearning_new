@@ -10,10 +10,7 @@ import FirebaseFirestore
 import FirebaseStorage
 import SDWebImage
 
-var colorArray: [UIColor] = [UIColor(red: 116/255, green: 29/255, blue: 149/255, alpha: 1.0),
-                  UIColor(red: 255/255, green: 202/255, blue: 0/255, alpha: 1.0),
-                  UIColor(red: 255/255, green: 114/255, blue: 0/255, alpha: 1.0),
-                  UIColor(red: 116/255, green: 202/255, blue: 0/255, alpha: 1.0),]
+
 
 class ButtonsViewController: UIViewController {
     @IBOutlet weak var lblTitle: UIBarButtonItem!
@@ -24,6 +21,10 @@ class ButtonsViewController: UIViewController {
     var isAlphabets = Bool()
     var isWords = Bool()
     var words = [Words]()
+    var colorArray: [UIColor] = [UIColor(red: 116/255, green: 29/255, blue: 149/255, alpha: 1.0),
+                      UIColor(red: 255/255, green: 202/255, blue: 0/255, alpha: 1.0),
+                      UIColor(red: 255/255, green: 114/255, blue: 0/255, alpha: 1.0),
+                      UIColor(red: 116/255, green: 202/255, blue: 0/255, alpha: 1.0),]
     
     var color = UIColor()
     
