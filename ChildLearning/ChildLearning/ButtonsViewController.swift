@@ -147,7 +147,6 @@ extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isWords{
-            print("word ------\(words.count)")
             return words.count
         }
         return arr.count

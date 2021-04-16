@@ -825,6 +825,9 @@
                         </leftBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionVPlay" destination="bbO-uH-k2L" id="YxI-db-1gL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2q-N5-sFb" sceneMemberID="firstResponder"/>
             </objects>
