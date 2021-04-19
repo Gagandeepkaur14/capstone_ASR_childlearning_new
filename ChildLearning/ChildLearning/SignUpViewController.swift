@@ -73,7 +73,6 @@ class SignUpViewController: UIViewController {
         else{
             signupObserverFirebase(email: txtFEmail.text ?? "", name: txtFName.text ?? "", password: txtFPassword.text ?? "")
         }
-        
     }
     
     @IBAction func backClicked(_ sender: Any) {

@@ -55,7 +55,7 @@ class SpeakViewController: UIViewController {
        
         synthesizer = AVSpeechSynthesizer()
         synthesizer.delegate = self
-textToSpeech()
+        textToSpeech()
         // Do any additional setup after loading the view.
     }
     
@@ -73,13 +73,10 @@ textToSpeech()
             utterance.voice = AVSpeechSynthesisVoice(language:  "en-US") //BCP-47
        
             if (synthesizer.isPaused) {
-                print("continueSpeaking ---------")
-            //    updateNowPlaying(isPause: false)
                 synthesizer.continueSpeaking();
             }
                 // The pause functionality
             else if (synthesizer.isSpeaking) {
-                print("pausedddddddd")
                 synthesizer.pauseSpeaking(at: AVSpeechBoundary.immediate)
             }
                 // The start functionality
@@ -96,7 +93,6 @@ textToSpeech()
 extension SpeakViewController: AVSpeechSynthesizerDelegate{
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        print("Done ------- ")
         self.navigationController?.popViewController(animated: true)
     }
     

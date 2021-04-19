@@ -22,14 +22,20 @@ class PlayViewController: UIViewController {
     var indexFinal = Int()
     var player = AVAudioPlayer()
     var arrWord = [Words]()
-    var arrWordFinal = [Words]()
-    
+    var arrWordFinal = [String]() // final that we will show in the collection to choose
+    var arrWordTitle = [String]() // get the seprate list of title from words
+    var arrWordImages = [String]() // get the seprate list of images from words
     override func viewDidLoad() {
         super.viewDidLoad()
         synthesizer = AVSpeechSynthesizer()
         synthesizer.delegate = self
         if isWords{
             arrWord = Constant.appDelegate.words
+            for i in arrWord{
+                arrWordImages.append(i.Name)
+                arrWordTitle.append(i.title)
+            }
+            showWordData()
            return
         }
         else if isNumber{
@@ -70,28 +76,38 @@ class PlayViewController: UIViewController {
     }
     
     func showWordData(){
-        var resultSet = [Words]()
-        var resultSetFinal = [Words]()
-
+        var resultSet = Set<String>()
+        var resultSetFinal = Set<String>()
         while resultSet.count < 4 {
-            let randomIndex = Int(arc4random_uniform(UInt32(arrWord.count)))
-            resultSet.insert(arrWord[randomIndex], at: 0)
+            let randomIndex = Int(arc4random_uniform(UInt32(arrWordImages.count)))
+            resultSet.insert(arrWordImages[randomIndex])
         }
         arrWordFinal = Array(resultSet)
-        print(arrFinal)
+        print(arrWordFinal)
+        
+        var arrGetTitleOfFetchedImages = [String]()
+        for i in arrWord{
+            for j in arrWordImages{
+                if i.Name == j{
+                    arrGetTitleOfFetchedImages.append(i.title)
+                }
+            }
+        }
+        
+        print("titles of get images ===== \(arrGetTitleOfFetchedImages)")
+        print(" images ===== \(arrWordFinal)")
         
         while resultSetFinal.count < 1 {
-            let randomIndex = Int(arc4random_uniform(UInt32(arrWordFinal.count)))
-            resultSetFinal.insert(arrWordFinal[randomIndex], at: 0)
+            let randomIndex = Int(arc4random_uniform(UInt32(arrGetTitleOfFetchedImages.count)))
+            resultSetFinal.insert(arrGetTitleOfFetchedImages[randomIndex])
         }
         print("result ----- \(Array(resultSetFinal))")
         let arrSingle = Array(resultSetFinal)
         if arrSingle.count > 0{
-            let word = arrSingle[0]
-            let index = arrWordFinal.filter { $0.title == word.title }
-            
-            textToSpeech(str: "Where is \(word.title)")
-          
+            let str = arrSingle[0]
+            indexFinal = arrGetTitleOfFetchedImages.lastIndex(of: str) ?? 0
+            print("index -------- \(indexFinal)")
+            textToSpeech(str: "Where is \(str)")
         }
         collectionVPlay.reloadData()
     }
@@ -131,7 +147,8 @@ class PlayViewController: UIViewController {
 extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return isWords ? 0 : arrFinal.count
+        print("------- count ----- \(arrWordFinal.count)")
+        return isWords ? arrWordImages.count : arrFinal.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -140,7 +157,7 @@ extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if isWords{
             cell.imgV.isHidden = false
 //            let word = words[indexPath.row]
-//            cell.imgV.sd_setImage(with: URL(string: word.Name), placeholderImage: nil)
+            cell.imgV.sd_setImage(with: URL(string: arrWordImages[indexPath.row]), placeholderImage: nil)
         }
         else{
             cell.imgV.isHidden = true
@@ -186,7 +203,12 @@ extension PlayViewController: AVAudioPlayerDelegate {
         if flag {
             // After successfully finish song playing will stop audio player and remove from memory
             print("Audio player finished playing")
-            showData()
+            if isWords{
+                showWordData()
+            }
+            else{
+                showData()
+            }
             // Write code to play next audio.
         }
     }

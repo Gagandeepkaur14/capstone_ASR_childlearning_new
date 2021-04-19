@@ -4,6 +4,216 @@
    <FileRef
       location = "group:ChildLearning.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:ChildLearning"
+      name = "ChildLearning">
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:LoginViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:SignUpViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:SpeakViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ButtonCollectionViewCell.swift">
+      </FileRef>
+      <FileRef
+         location = "group:FirebaseModel.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Constant.swift">
+      </FileRef>
+      <FileRef
+         location = "group:applause.mp3">
+      </FileRef>
+      <FileRef
+         location = "group:GoogleService-Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:AppDelegate.swift">
+      </FileRef>
+      <FileRef
+         location = "group:SceneDelegate.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:HomeViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ButtonsViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:SpeakViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:applause.mp3">
+      </FileRef>
+      <FileRef
+         location = "group:FirebaseModel.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Constant.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Alert.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ButtonsViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ViewController.swift">
+      </FileRef>
+      <Group
+         location = "group:Assets.xcassets"
+         name = "Assets.xcassets">
+         <Group
+            location = "group:bg.imageset"
+            name = "bg.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:bg.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:back.imageset"
+            name = "back.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:icons8-back-101.png">
+            </FileRef>
+            <FileRef
+               location = "group:icons8-back-100.png">
+            </FileRef>
+            <FileRef
+               location = "group:icons8-back-102.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AppIcon.appiconset"
+            name = "AppIcon.appiconset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AccentColor.colorset"
+            name = "AccentColor.colorset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:GoogleService-Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:SignUpViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:HomeViewController.swift">
+      </FileRef>
+      <Group
+         location = "group:Base.lproj"
+         name = "Base.lproj">
+         <FileRef
+            location = "group:LaunchScreen.storyboard">
+         </FileRef>
+         <FileRef
+            location = "group:Main.storyboard">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:CommonFunctions.swift">
+      </FileRef>
+      <FileRef
+         location = "group:PlayViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Alert.swift">
+      </FileRef>
+      <FileRef
+         location = "group:CommonFunctions.swift">
+      </FileRef>
+      <FileRef
+         location = "group:PlayViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:LoginViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:AppDelegate.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ButtonCollectionViewCell.swift">
+      </FileRef>
+      <Group
+         location = "group:Assets.xcassets"
+         name = "Assets.xcassets">
+         <Group
+            location = "group:bg.imageset"
+            name = "bg.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:bg.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:back.imageset"
+            name = "back.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:icons8-back-101.png">
+            </FileRef>
+            <FileRef
+               location = "group:icons8-back-100.png">
+            </FileRef>
+            <FileRef
+               location = "group:icons8-back-102.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AppIcon.appiconset"
+            name = "AppIcon.appiconset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AccentColor.colorset"
+            name = "AccentColor.colorset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:SceneDelegate.swift">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
