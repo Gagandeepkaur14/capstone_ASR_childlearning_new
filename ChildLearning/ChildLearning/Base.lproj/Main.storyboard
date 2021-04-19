@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="Avb-zn-CON">
             <objects>
-                <viewController id="Yjx-NH-PNE" customClass="ViewController" customModule="ChildLearning" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="Yjx-NH-PNE" customClass="ViewController" customModule="ChildLearning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iCl-DF-uZ7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

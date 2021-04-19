@@ -53,6 +53,7 @@ class SignUpViewController: UIViewController {
             ref.child(Constant.FirebaseData.User).childByAutoId().setValue(data)
             let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
             vc.strUserName = name
+            UserDefaults.standard.setValue(name, forKey: "username")
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

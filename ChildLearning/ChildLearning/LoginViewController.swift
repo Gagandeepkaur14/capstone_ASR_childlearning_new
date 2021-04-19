@@ -57,6 +57,7 @@ class LoginViewController: UIViewController {
             else{
                 let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
                 vc.strUserName = user.name
+                UserDefaults.standard.setValue(user.name, forKey: "username")
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
@@ -77,6 +78,7 @@ class LoginViewController: UIViewController {
             if user.password == "facebook"{
                 let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
                 vc.strUserName = user.name
+                UserDefaults.standard.setValue(user.name, forKey: "username")
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else{
@@ -102,6 +104,7 @@ class LoginViewController: UIViewController {
             ref.child(Constant.FirebaseData.User).childByAutoId().setValue(data)
             let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
             vc.strUserName = name
+            UserDefaults.standard.setValue(name, forKey: "username")
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -86,10 +86,10 @@ class PlayViewController: UIViewController {
         print(arrWordFinal)
         
         var arrGetTitleOfFetchedImages = [String]()
-        for i in arrWord{
-            for j in arrWordImages{
-                if i.Name == j{
-                    arrGetTitleOfFetchedImages.append(i.title)
+        for i in arrWordFinal{
+            for j in arrWord{
+                if i == j.Name{
+                    arrGetTitleOfFetchedImages.append(j.title)
                 }
             }
         }
@@ -148,7 +148,7 @@ extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("------- count ----- \(arrWordFinal.count)")
-        return isWords ? arrWordImages.count : arrFinal.count
+        return isWords ? arrWordFinal.count : arrFinal.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -157,7 +157,7 @@ extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if isWords{
             cell.imgV.isHidden = false
 //            let word = words[indexPath.row]
-            cell.imgV.sd_setImage(with: URL(string: arrWordImages[indexPath.row]), placeholderImage: nil)
+            cell.imgV.sd_setImage(with: URL(string: arrWordFinal[indexPath.row]), placeholderImage: nil)
         }
         else{
             cell.imgV.isHidden = true
