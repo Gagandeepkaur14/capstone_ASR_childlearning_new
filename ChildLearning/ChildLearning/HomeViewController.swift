@@ -50,10 +50,10 @@ class HomeViewController: UIViewController {
     @IBAction func logoutClicked(_ sender: Any) {
         let myalert = UIAlertController(title: "", message: "Are you sure you want to logout?", preferredStyle: UIAlertController.Style.alert)
         
-        myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+        myalert.addAction(UIAlertAction(title: "Yes", style: .default) { (action:UIAlertAction!) in
             self.logout()
         })
-        myalert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+        myalert.addAction(UIAlertAction(title: "No", style: .cancel) { (action:UIAlertAction!) in
         })
         self.present(myalert, animated: true)
     }
