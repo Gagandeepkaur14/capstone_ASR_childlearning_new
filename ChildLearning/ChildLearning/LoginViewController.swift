@@ -64,9 +64,6 @@ class LoginViewController: UIViewController {
         else{
             Alert.addAlertController(strTittle: "Error!", strMessage: "Email not registered", viewC: self)
         }
-        if let user = users.firstIndex(where: {$0.email == email}) {
-            print(user)
-        }
         
     }
     
@@ -86,9 +83,7 @@ class LoginViewController: UIViewController {
             }
                
         }
-        else{
-            Alert.addAlertController(strTittle: "Error!", strMessage: "Email not registered", viewC: self)
-        }
+
         
     }
     
@@ -120,7 +115,6 @@ class LoginViewController: UIViewController {
             for eachPlace in (snapshot.children){
                 let place = Users(snapshot: eachPlace as! DataSnapshot)
                 self.users.append(place)
-                print("users p------- \(self.users)")
             }
            
         })
@@ -145,7 +139,6 @@ class LoginViewController: UIViewController {
             GraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     if  let dict = result as? [String : Any]{
-                       print(dict)
                         self.signupObserverFirebase(email: dict["email"] as? String ?? "", name: dict["name"] as? String ?? "")
                     }
                 }

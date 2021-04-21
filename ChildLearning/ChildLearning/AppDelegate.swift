@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func fetchAlphabets(){
         let db = Firestore.firestore()
         db.collection(Constant.FirebaseData.Alphabets).getDocuments { (query, error) in
+            
             if let err = error {
                    print("Error getting documents: \(err)")
                } else {

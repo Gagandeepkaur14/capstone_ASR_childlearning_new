@@ -10,12 +10,10 @@ import FirebaseDatabase
 struct Users {
     var name = ""
     var email = ""
-    var id = ""
     var password = ""
     init(name: String, email: String, password: String) {
         self.name = name
         self.email = email
-       // self.id = id
          self.password = password
     }
     init(snapshot: DataSnapshot) {

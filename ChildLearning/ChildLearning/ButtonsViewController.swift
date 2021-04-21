@@ -51,7 +51,6 @@ class ButtonsViewController: UIViewController {
         lblTitle.tintColor = color
         imgTitle.tintColor = color
         collectionVWords.reloadData()
-        print("alphabeys ------ \(Constant.appDelegate.arrAlphabets)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,11 +69,6 @@ class ButtonsViewController: UIViewController {
         vc.isAlphabet = isAlphabets
         self.navigationController?.pushViewController(vc, animated: true)
     }
-   
-    
-    
-   
-    
 
 }
 

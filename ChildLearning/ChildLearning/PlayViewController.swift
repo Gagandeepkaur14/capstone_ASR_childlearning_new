@@ -147,7 +147,6 @@ class PlayViewController: UIViewController {
 extension PlayViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("------- count ----- \(arrWordFinal.count)")
         return isWords ? arrWordFinal.count : arrFinal.count
     }
     
