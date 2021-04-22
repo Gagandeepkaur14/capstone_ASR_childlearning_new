@@ -55,10 +55,18 @@ class LoginViewController: UIViewController {
                 Alert.addAlertController(strTittle: "Error!", strMessage: "Incorrect Password", viewC: self)
             }
             else{
-                let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
-                vc.strUserName = user.name
-                UserDefaults.standard.setValue(user.name, forKey: "username")
-                self.navigationController?.pushViewController(vc, animated: true)
+                
+                if #available(iOS 13.0, *) {
+                    let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                    vc.strUserName = user.name
+                    UserDefaults.standard.setValue(user.name, forKey: "username")
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    vc.strUserName = user.name
+                    UserDefaults.standard.setValue(user.name, forKey: "username")
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
         else{
@@ -73,10 +81,17 @@ class LoginViewController: UIViewController {
 
             let user = singleUser.element
             if user.password == "facebook"{
-                let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
-                vc.strUserName = user.name
-                UserDefaults.standard.setValue(user.name, forKey: "username")
-                self.navigationController?.pushViewController(vc, animated: true)
+                if #available(iOS 13.0, *) {
+                    let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                    vc.strUserName = user.name
+                    UserDefaults.standard.setValue(user.name, forKey: "username")
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    vc.strUserName = user.name
+                    UserDefaults.standard.setValue(user.name, forKey: "username")
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
             else{
                 Alert.addAlertController(strTittle: "Error!", strMessage: "User not registered with facebook", viewC: self)
@@ -97,10 +112,18 @@ class LoginViewController: UIViewController {
         }
         else{
             ref.child(Constant.FirebaseData.User).childByAutoId().setValue(data)
-            let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
-            vc.strUserName = name
-            UserDefaults.standard.setValue(name, forKey: "username")
-            self.navigationController?.pushViewController(vc, animated: true)
+            if #available(iOS 13.0, *) {
+                let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                vc.strUserName = name
+                UserDefaults.standard.setValue(name, forKey: "username")
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                vc.strUserName = name
+                UserDefaults.standard.setValue(name, forKey: "username")
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+           
         }
     }
     

@@ -30,21 +30,43 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func wordClicked(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "ButtonsViewController") as! ButtonsViewController
-        vc.isWords = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = self.storyboard?.instantiateViewController(identifier: "ButtonsViewController") as! ButtonsViewController
+            vc.isWords = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ButtonsViewController") as! ButtonsViewController
+            vc.isWords = true
+            self.navigationController?.pushViewController(vc, animated: true)
+            // Fallback on earlier versions
+        }
+      
     }
     
     @IBAction func alphabetClicked(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "ButtonsViewController") as! ButtonsViewController
-        vc.isAlphabets = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = self.storyboard?.instantiateViewController(identifier: "ButtonsViewController") as! ButtonsViewController
+            vc.isAlphabets = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ButtonsViewController") as! ButtonsViewController
+            vc.isAlphabets = true
+            self.navigationController?.pushViewController(vc, animated: true)
+            // Fallback on earlier versions
+        }
     }
     
     @IBAction func numberClicked(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "ButtonsViewController") as! ButtonsViewController
-        vc.isNumbers = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = self.storyboard?.instantiateViewController(identifier: "ButtonsViewController") as! ButtonsViewController
+            vc.isNumbers = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ButtonsViewController") as! ButtonsViewController
+            vc.isNumbers = true
+            self.navigationController?.pushViewController(vc, animated: true)
+            // Fallback on earlier versions
+        }
     }
     
     @IBAction func logoutClicked(_ sender: Any) {

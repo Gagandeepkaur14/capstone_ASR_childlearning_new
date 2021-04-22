@@ -14,10 +14,42 @@
             filePath = "ChildLearning/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "fetchFbLogin(email:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F55C1E64-36C0-49FA-96F6-4DFCB7B99148 - ee32b1d80925d4c8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChildLearning.LoginViewController.fetchFbLogin(email: Swift.String) -&gt; ()"
+                  moduleName = "ChildLearning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rakinder/Projects/capstone_ASR_childlearning_new/ChildLearning/ChildLearning/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "F55C1E64-36C0-49FA-96F6-4DFCB7B99148 - 2ad3ffae3c53135a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((offset: Swift.Int, element: ChildLearning.Users)) -&gt; Swift.Bool in ChildLearning.LoginViewController.fetchFbLogin(email: Swift.String) -&gt; ()"
+                  moduleName = "ChildLearning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rakinder/Projects/capstone_ASR_childlearning_new/ChildLearning/ChildLearning/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "146">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

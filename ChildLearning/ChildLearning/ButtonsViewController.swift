@@ -63,11 +63,20 @@ class ButtonsViewController: UIViewController {
     }
     
     @IBAction func playClicked(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "PlayViewController") as! PlayViewController
-        vc.isWords = isWords
-        vc.isNumber = isNumbers
-        vc.isAlphabet = isAlphabets
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = self.storyboard?.instantiateViewController(identifier: "PlayViewController") as! PlayViewController
+            vc.isWords = isWords
+            vc.isNumber = isNumbers
+            vc.isAlphabet = isAlphabets
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlayViewController") as! PlayViewController
+            vc.isWords = isWords
+            vc.isNumber = isNumbers
+            vc.isAlphabet = isAlphabets
+            self.navigationController?.pushViewController(vc, animated: true)
+            // Fallback on earlier versions
+        }
     }
 
 }
@@ -98,19 +107,36 @@ extension ButtonsViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "SpeakViewController") as! SpeakViewController
-        vc.isWord = isWords
-        vc.isAlphabets = isAlphabets
-        vc.isNumbers = isNumbers
-        if isWords{
-            vc.strWord = words[indexPath.row].title
-            vc.isWord = true
-            vc.word = words[indexPath.row]
+        if #available(iOS 13.0, *) {
+            let vc = self.storyboard?.instantiateViewController(identifier: "SpeakViewController") as! SpeakViewController
+            vc.isWord = isWords
+            vc.isAlphabets = isAlphabets
+            vc.isNumbers = isNumbers
+            if isWords{
+                vc.strWord = words[indexPath.row].title
+                vc.isWord = true
+                vc.word = words[indexPath.row]
+            }
+            else{
+                vc.strWord = arr[indexPath.row]
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SpeakViewController") as! SpeakViewController
+            vc.isWord = isWords
+            vc.isAlphabets = isAlphabets
+            vc.isNumbers = isNumbers
+            if isWords{
+                vc.strWord = words[indexPath.row].title
+                vc.isWord = true
+                vc.word = words[indexPath.row]
+            }
+            else{
+                vc.strWord = arr[indexPath.row]
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        else{
-            vc.strWord = arr[indexPath.row]
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+       
     }
 }
 

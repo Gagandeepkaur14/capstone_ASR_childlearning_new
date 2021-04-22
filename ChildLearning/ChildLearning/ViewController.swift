@@ -27,13 +27,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signUpClicked(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "SignUpViewController") as! SignUpViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = self.storyboard?.instantiateViewController(identifier: "SignUpViewController") as! SignUpViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func loginClicked(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        if #available(iOS 13.0, *) {
+            let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
 
 }
